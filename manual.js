@@ -8,57 +8,6 @@ $(document).ready(function(){
 })
 
 
-//выбрать произвольный элемент из массива arr
-function choice(arr) {
-    return arr[Math.floor(Math.random() * arr.length)]
-}
-
-function count(s, pattern){
-	return (s.split(pattern).length - 1);
-}
-
-
-function isImg(s){
-	s = s.toString();
-	if (count(s,'.jpg') != 0 | count(s,'.png') != 0 | count(s,'.jpeg') != 0){return true;}
-	else {return false;}
-}
-
-
-function show_answers_row_column(){
-	var el = document.getElementById("row_column_checkbox");
-	var ans_div = document.getElementById("answers");
-	ans_div.innerHTML = '';
-	if (el.checked){
-		
-		for(i=0; i<answers.length; i++){
-			
-			var sp = document.createElement('span');
-			sp.innerHTML = (i+1).toString() + ') ';
-			
-			var hr = document.createElement('hr');
-			hr.width = "20%";
-			
-			ans_div.appendChild(sp);
-			ans_div.appendChild(answers[i]);
-			ans_div.appendChild(hr);
-		}
-	}
-	else{
-		for(i=0; i<answers.length; i++){
-			ans_div.appendChild(answers[i]);
-			var sp = document.createElement('span');
-			sp.innerHTML = '; ';
-			ans_div.appendChild(sp);
-		}
-	}
-	
-  	ans_div.removeChild(ans_div.lastChild);
-	MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-			
-}
-
-
 function showAllAns(){
     if (document.getElementById("showAllAnsBtn").innerHTML === 'Показать все ответы'){
         document.getElementById("showAllAnsBtn").innerHTML = 'Скрыть ответы';
@@ -130,27 +79,6 @@ function next_question() {
 
 }
 
-function change_font_size(t = false){
-        var size = document.getElementById("font_size").value;
-        var el = document.getElementById("question")
-    if (t === false){
-        el.style.fontSize = size.toString()+'px';
-    }
-    else{
-        el.style.fontSize = t.toString()+'px';    
-    }
-}
-
-function change_ans_font_size(t = false){
-        var size = document.getElementById("ans_font_size").value;
-        var el = document.getElementById("answers")
-    if (t === false){
-        el.style.fontSize = size.toString()+'px';
-    }
-    else{
-        el.style.fontSize = t.toString()+'px';    
-    }
-}
 
 
 function stop(){
@@ -172,28 +100,4 @@ function row_column_ans(){
 	if (document.getElementById("showAllAnsBtn").innerHTML === 'Скрыть ответы'){
 		show_answers_row_column();
 	}   
-}
-
-
- function addimg(file) {
-	 
-            var img = new Image(); 
-            img.src = file;
-	 		
-	 		img.style = "vertical-align: middle; width: "+img_size.toString()+";";
-	 		
-	 return img;
-        }  
-
-
-function change_img_size(){
-
-        var size = document.getElementById("img_size").value;
-	    img_size = size;
-        $("img").each(function () {
-			var width = $(this).width();
-                $(this).attr({
-                	width : size
-				})
-		})
 }

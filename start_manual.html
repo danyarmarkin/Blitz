@@ -14,34 +14,28 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     
-    <script src="questions.js?vv"></script>
-    <script src="blitz.js?vv"></script>
+    <script src="questions/questions.js?vv"></script>
+    <script src="lib.js?vv"></script>
+	<script src="manual.js?vv"></script>
     
 
 </head>
 
     <body style = "text-align: center">
   
-      Длительность вопроса: <input type = 'number' id = "duration" value = 3 style = "width: 60px;" min = 1 required></input><br> <br>
-      Количество вопросов: <input type = 'number' id = "number_of_questions" value = 4 style = "width: 60px;" min = 1 onchange = "number_of_questions_change()" required></input><br>
-      <div style = "display: none" id = "max_questions_warning" style = "color: red;"></div><br>
+      <button onclick="next_question()" id = "next_question">Следующий вопрос</button>
+      <button onclick="showOneAns()" id = "showOneAnsBtn">Показать текущий ответ</button>
+      <button onclick="stop()" id = "stop_btn">Сброс</button><br><br>
       Размер шрифта: <input type = 'number' id = "font_size" value = 70 onchange="change_font_size()" step ="5" style = "width: 60px;"></input>
 	  Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;"></input>	
+	  <br>
+      <hr><br>
+      <img src = '' id = "question_img" style = "display: none; margin:0 auto;"></img>
+      <img src = '' id = "answer_img" style = "display: none; margin:0 auto;">
+      <div id = "question" style = "font-size: 70px; margin:0 auto;"></div>
       <br><br>
-      <button onclick="timer()" id = "start_btn">Начать</button>
-      <button onclick="pause()" id = "pause_btn">Пауза</button>
-      <button onclick="stop()" id = "stop_btn">Сброс</button><br><br>
-      <progress value="0" max="100" id = "progress_bar"></progress><br><br>
-
-
-      <span id="countdowntimer"></span>
-        <hr><br>
-      <div><img src = '' id = "question_img" style = "display: none; margin:0 auto;"></img></div>
-      <div id = "question" style = "font-size: 70px; margin:0 auto;">
-							
-	  </div><br><br>
         <hr>
-        <button onclick="show_answers()" id = showans_btn>Показать ответы</button> - 
+		<button onclick="showAllAns()" id = "showAllAnsBtn">Показать все ответы</button> - 
         Размер шрифта:
         <input type = 'number' id = "ans_font_size" value = 40 onchange="change_ans_font_size()" step ="5" style = "width: 60px;" required></input> -  
         В столбик <input type="checkbox" onchange = "row_column_ans()" id = "row_column_checkbox" required>
