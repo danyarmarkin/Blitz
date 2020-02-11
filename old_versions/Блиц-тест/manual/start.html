@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блиц</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+           });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+    <script src="questions.js?vv"></script>
+    <script src="manual.js?vv"></script>
+    
+
+</head>
+
+    <body style = "text-align: center">
+  
+      <button onclick="next_question()" id = "next_question">Следующий вопрос</button>
+      <button onclick="showOneAns()" id = "showOneAnsBtn">Показать текущий ответ</button>
+      <button onclick="stop()" id = "stop_btn">Сброс</button><br><br>
+      Размер шрифта: <input type = 'number' id = "font_size" value = 70 onchange="change_font_size()" step ="5" style = "width: 60px;"></input>
+	  Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;"></input>	
+	  <br>
+      <hr><br>
+      <img src = '' id = "question_img" style = "display: none; margin:0 auto;"></img>
+      <img src = '' id = "answer_img" style = "display: none; margin:0 auto;">
+      <div id = "question" style = "font-size: 70px; margin:0 auto;"></div>
+      <br><br>
+        <hr>
+		<button onclick="showAllAns()" id = "showAllAnsBtn">Показать все ответы</button> - 
+        Размер шрифта:
+        <input type = 'number' id = "ans_font_size" value = 40 onchange="change_ans_font_size()" step ="5" style = "width: 60px;" required></input> -  
+        В столбик <input type="checkbox" onchange = "row_column_ans()" id = "row_column_checkbox" required>
+        <br><br>
+      <div id = "answers" style = "font-size: 40px; margin:0 auto; white-space: pre-wrap;"></div>
+  
+
+</body>
+</html>

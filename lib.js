@@ -52,20 +52,20 @@ function show_answers_row_column(){
 			hr.width = "20%";
 			
 			ans_div.appendChild(sp);
-			ans_div.appendChild(answers[i]);
+			ans_div.appendChild(answers[i].cloneNode(true));
 			ans_div.appendChild(hr);
 		}
 	}
 	else{
 		for(i=0; i<answers.length; i++){
-			ans_div.appendChild(answers[i]);
+			ans_div.appendChild(answers[i].cloneNode(true));
 			var sp = document.createElement('span');
 			sp.innerHTML = '; ';
 			ans_div.appendChild(sp);
 		}
 	}
 	
-  	ans_div.removeChild(ans_div.lastChild);
+  	ans_div.removeChild(ans_div.lastChild); // удаляет последнюю точку с запятой
 	MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 			
 }
