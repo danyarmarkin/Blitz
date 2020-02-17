@@ -24,6 +24,12 @@ function set_questions_theme(){
 		questions = JSON.parse(JSON.stringify(questions_t_vieta));
 	}
 	
+	if (questions_theme === 'formuly_privideniya'){
+		questions = JSON.parse(JSON.stringify(questions_formuly_privideniya));
+	}
+	if (questions_theme === 'questions_trigonometriya'){
+		questions = JSON.parse(JSON.stringify(questions_trigonometriya));
+	}
 	qsts = JSON.parse(JSON.stringify(questions));
 	
 	try{

@@ -6,9 +6,27 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-           });
+		  MathJax.Hub.Config({
+			extensions: ["tex2jax.js"],
+			TeX: {
+				extensions: ["autoload-all.js", "AMSmath.js","AMSsymbols.js"],
+				Macros: {
+					tg: ['\\mathop{\\rm tg}\\nolimits', 0],
+					ctg: ['\\mathop{\\rm ctg}\\nolimits', 0],
+					cosec: ['\\mathop{\\rm cosec}\\nolimits', 0],
+					sec: ['\\mathop{\\rm sec}\\nolimits', 0],
+					arctg: ['\\mathop{\\rm arctg}\\nolimits', 0],
+					arcctg: ['\\mathop{\\rm arcctg}\\nolimits', 0],
+					sh: ['\\mathop{\\rm sh}\\nolimits', 0],
+					ch: ['\\mathop{\\rm ch}\\nolimits', 0],
+					th: ['\\mathop{\\rm th}\\nolimits', 0],
+					cth: ['\\mathop{\\rm cth}\\nolimits', 0],
+					sign: ['\\mathop{\\rm sign}\\nolimits', 0],
+				}
+				},
+			jax: ["input/TeX","output/HTML-CSS"],
+			tex2jax: {inlineMath: [["$","$"]]},
+		  });
     </script>
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -16,6 +34,10 @@
     
     <script src="questions/questions_sqr.js?vv"></script>
     <script src="questions/questions_t_vieta.js?vv"></script>
+	<script src="questions/questions_formuly_privideniya.js?vv"></script>
+	<script src="questions/questions_trigonometriya.js?vv"></script>
+
+
     <script src="lib.js?vv"></script>
 	<script src="blitz.js?vv"></script>
     
@@ -29,6 +51,9 @@
 		Тема вопросов: <select id="select_questions" onchange="set_questions_theme()">	
 			<option value="sqr">Квадраты чисел от 11 до 36</option>
 			<option value="t_vieta">Теорема Виета</option>
+			<option value="formuly_privideniya">Формулы привидения</option>
+			<option value="questions_trigonometriya">Тригонометрические формулы</option>
+
 		</select><br><br>
   
       Длительность вопроса: <input type = 'number' id = "duration" value = 3 style = "width: 60px;" min = 1 required></input><br> <br>
@@ -46,7 +71,7 @@
       <span id="countdowntimer"></span>
         <hr><br>
       <div><img src = '' id = "question_img" style = "display: none; margin:0 auto;"></img></div>
-      <div id = "question" style = "font-size: 70px; margin:0 auto;">
+      <div id = "question" style = "font-size: 70px; margin:0 auto; white-space: pre;">
 							
 	  </div><br><br>
         <hr>
