@@ -93,14 +93,24 @@ function show_answers_row_column(){
 
 
 function change_font_size(t = false){
-        var size = document.getElementById("font_size").value;
-        var el = document.getElementById("question")
+    var size = document.getElementById("font_size").value;
+    var el = document.getElementById("question")
     if (t === false){
         el.style.fontSize = size.toString()+'px';
     }
     else{
         el.style.fontSize = t.toString()+'px';    
     }
+
+	try{
+		var el = document.getElementById("answers")
+		if (t === false){
+			el.style.fontSize = size.toString()+'px';
+		}
+		else{
+			el.style.fontSize = t.toString()+'px';    
+		}
+	} catch{}
 }
 
 function change_ans_font_size(t = false){
