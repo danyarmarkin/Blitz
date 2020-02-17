@@ -1,5 +1,6 @@
 var questions;
 
+
 //выбрать произвольный элемент из массива arr
 function choice(arr) {
     return arr[Math.floor(Math.random() * arr.length)]
