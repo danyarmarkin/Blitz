@@ -1,7 +1,4 @@
-var answers = [];
-var qs = JSON.parse(JSON.stringify(questions));
-var img_size = 500;
-
+var questions;
 
 //выбрать произвольный элемент из массива arr
 function choice(arr) {
@@ -17,6 +14,23 @@ function isImg(s){
 	if (count(s,'.jpg') != 0 | count(s,'.png') != 0 | count(s,'.jpeg') != 0){return true;}
 	else {return false;}
 }
+
+function set_questions_theme(){
+	var questions_theme = document.getElementById("select_questions").value;
+	if (questions_theme === 'sqr'){
+		questions = JSON.parse(JSON.stringify(questions_sqr));
+	}
+	if (questions_theme === 't_vieta'){
+		questions = JSON.parse(JSON.stringify(questions_t_vieta));
+	}
+	
+	qsts = JSON.parse(JSON.stringify(questions));
+	
+	try{
+		document.getElementById("number_of_questions").max = qsts.length;
+	} catch{}
+}
+
 
 
 function number_of_questions_change(){

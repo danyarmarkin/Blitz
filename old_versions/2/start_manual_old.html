@@ -14,8 +14,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     
-    <script src="questions/questions_sqr.js?vv"></script>
-    <script src="questions/questions_t_vieta.js?vv"></script>
+    <script src="questions/questions.js?vv"></script>
     <script src="lib.js?vv"></script>
 	<script src="manual.js?vv"></script>
     
@@ -23,14 +22,7 @@
 </head>
 
     <body style = "text-align: center">
-      <button onclick="window.open('start_blitz.html', '_self')" id = "open_blitz_page">Вопросы на скорость</button>
-      <button onclick="" id = "open_manual_page" disabled>Вопросы по клику</button><br><br>
-
-		Тема вопросов: <select id="select_questions" onchange="set_questions_theme()">	
-			<option value="sqr">Квадраты чисел от 11 до 36</option>
-			<option value="t_vieta">Теорема Виета</option>
-		</select><br><br>
-		
+  
       <button onclick="next_question()" id = "next_question">Следующий вопрос</button>
       <button onclick="showOneAns()" id = "showOneAnsBtn">Показать текущий ответ</button>
       <button onclick="stop()" id = "stop_btn">Сброс</button><br><br>
@@ -40,9 +32,8 @@
       <hr><br>
       <img src = '' id = "question_img" style = "display: none; margin:0 auto;"></img>
       <img src = '' id = "answer_img" style = "display: none; margin:0 auto;">
-      <div id = "question" style = "font-size: 70px; margin:0 auto;" onclick = "console.log('question click')"></div>
-      <div id = "answer" style = "font-size: 70px; margin:0 auto; display: none;" onclick = "console.log('question click')"><br><br></div>
-	  <br><br>
+      <div id = "question" style = "font-size: 70px; margin:0 auto;"></div>
+      <br><br>
         <hr>
 		<button onclick="showAllAns()" id = "showAllAnsBtn">Показать все ответы</button> - 
         Размер шрифта:

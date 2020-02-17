@@ -1,11 +1,10 @@
 var answers = [];
+var qs = JSON.parse(JSON.stringify(questions));
 var img_size = 500;
 
 $(document).ready(function(){
 	document.getElementById("showOneAnsBtn").disabled = true;
 	document.getElementById("showAllAnsBtn").disabled = true;
-	set_questions_theme();
-	qsts = JSON.parse(JSON.stringify(questions));
 })
 
 
@@ -28,23 +27,17 @@ function showOneAns(){
         document.getElementById("showOneAnsBtn").innerHTML = 'Скрыть ответ';
 		//document.getElementById("showAllAnsBtn").innerHTML = 'Показать все ответы';
 		var src = answers[answers.length - 1].src;
-		if (!src){
-			document.getElementById("answer").removeChild(document.getElementById("answer").lastChild);
-			document.getElementById("answer").appendChild(answers[answers.length - 1].cloneNode(true));
-			MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-			document.getElementById("answer").style.display = "block";
-		}
-		else{
-			document.getElementById("answer_img").style.display = "inline";
-			document.getElementById("answer_img").src = src;	
-			change_img_size();					
-		}
+		document.getElementById("answer_img").style.display = "inline";
+		document.getElementById("answer_img").src = src;
+		
+		change_img_size();
+		
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);		
     }
     else if (document.getElementById("showOneAnsBtn").innerHTML === 'Скрыть ответ'){
         document.getElementById("showOneAnsBtn").innerHTML = 'Показать текущий ответ';
         document.getElementById("answer_img").style.display = "none";
-		document.getElementById("answer").style.display = "none";
-	}
+    }
 
 }
 
@@ -53,18 +46,17 @@ function next_question() {
 	document.getElementById("showAllAnsBtn").disabled = false;
 	document.getElementById("showOneAnsBtn").innerHTML = 'Показать текущий ответ';
     document.getElementById("answer_img").style.display = "none";
-	document.getElementById("answer").style.display = "none";
 	document.getElementById("showAllAnsBtn").innerHTML = 'Показать все ответы';
     document.getElementById("answers").textContent = '';
     var questions_div = document.getElementById("question");
 	
-	if (qsts.length === 0){
+	if (qs.length === 0){
 		document.getElementById("question").textContent = 'заданы все возможные вопросы';
 		document.getElementById("next_question").disabled = true;
 	}
 	else{
-		var el = choice(qsts);
-		qsts.splice(qsts.indexOf(el), 1 );
+		var el = choice(qs);
+		qs.splice(qs.indexOf(el), 1 );
 
 		if (isImg(el[0])){
 			document.getElementById("question_img").style.display = "inline";
@@ -100,7 +92,7 @@ function stop(){
         document.getElementById("showAllAnsBtn").innerHTML = 'Показать ответы';
         document.getElementById("answers").textContent = '';
 		document.getElementById("answers").textContent = '';
-		qsts = JSON.parse(JSON.stringify(questions));
+		qs = JSON.parse(JSON.stringify(questions));
 }
 
 

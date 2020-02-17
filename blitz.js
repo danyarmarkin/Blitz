@@ -6,11 +6,10 @@ var img_size = 500;
 
 $(document).ready(function(){
       document.getElementById("pause_btn").disabled = true;
-	  document.getElementById("number_of_questions").max = questions.length;
+	  set_questions_theme();
+	  document.getElementById("number_of_questions").max = qsts.length;
 	  document.getElementById("number_of_questions").min = 1;
 })
-
-
 
 
 
@@ -32,11 +31,12 @@ function timer() {
 	stop();
     document.getElementById("pause_btn").disabled = false;
     document.getElementById("start_btn").disabled = true;
+    document.getElementById("select_questions").disabled = true;
 
     var dur = document.getElementById("duration").value*100;
     var number_of_questions = document.getElementById("number_of_questions").value;
     var prolog_time = 400;
-    var qs = JSON.parse(JSON.stringify(questions));
+    var qsts = JSON.parse(JSON.stringify(questions));
     answers = [];
     var timeleft = dur*(number_of_questions)+prolog_time;
     myTimer = setInterval(function () {
@@ -60,7 +60,7 @@ function timer() {
 					questions_div.style.visibility = "visible"; 
 				}, 500);
 
-				if (qs.length === 0){
+				if (qsts.length === 0){
 					clearInterval(myTimer);
 					document.getElementById("question").textContent = 'тест завершён, заданы все возможные вопросы' + ' (' +count(answers, ";")+' шт.)';
 					document.getElementById("start_btn").disabled = false;
@@ -71,8 +71,8 @@ function timer() {
 
 				}
 				else{
-					var el = choice(qs);
-					qs.splice(qs.indexOf(el), 1 );
+					var el = choice(qsts);
+					qsts.splice(qsts.indexOf(el), 1 );
 					
 					if (isImg(el[0])){
 						document.getElementById("question_img").style.display = "block";
@@ -105,6 +105,7 @@ function timer() {
 				document.getElementById("pause_btn").innerHTML = 'Пауза';
 				document.getElementById("pause_btn").disabled = true;
 				isPaused = false;
+			    document.getElementById("select_questions").disabled = false;
 
 			}
 			timeleft--;
@@ -127,6 +128,8 @@ function stop(){
 
         isPaused = false;
         clearInterval(myTimer);
+
+	    document.getElementById("select_questions").disabled = false;
 	
 }
 

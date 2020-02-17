@@ -14,7 +14,8 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     
-    <script src="questions/questions.js?vv"></script>
+    <script src="questions/questions_sqr.js?vv"></script>
+    <script src="questions/questions_t_vieta.js?vv"></script>
     <script src="lib.js?vv"></script>
 	<script src="blitz.js?vv"></script>
     
@@ -22,6 +23,13 @@
 </head>
 
     <body style = "text-align: center">
+      <button onclick="" id = "open_blitz_page" disabled>Вопросы на скорость</button>
+      <button onclick="window.open('start_manual.html', '_self')" id = "open_manual_page">Вопросы по клику</button><br><br>
+
+		Тема вопросов: <select id="select_questions" onchange="set_questions_theme()">	
+			<option value="sqr">Квадраты чисел от 11 до 36</option>
+			<option value="t_vieta">Теорема Виета</option>
+		</select><br><br>
   
       Длительность вопроса: <input type = 'number' id = "duration" value = 3 style = "width: 60px;" min = 1 required></input><br> <br>
       Количество вопросов: <input type = 'number' id = "number_of_questions" value = 4 style = "width: 60px;" min = 1 onchange = "number_of_questions_change()" required></input><br>
