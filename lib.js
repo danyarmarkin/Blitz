@@ -103,7 +103,7 @@ function change_font_size(t = false){
     }
 
 	try{
-		var el = document.getElementById("answers")
+		var el = document.getElementById("answer")
 		if (t === false){
 			el.style.fontSize = size.toString()+'px';
 		}
