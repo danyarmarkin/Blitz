@@ -61,6 +61,9 @@ function next_question() {
 	if (qsts.length === 0){
 		document.getElementById("question").textContent = 'заданы все возможные вопросы';
 		document.getElementById("next_question").disabled = true;
+		document.getElementById("answer").innerHTML = "";
+		document.getElementById("showOneAnsBtn").disabled = true;
+
 	}
 	else{
 		var el = choice(qsts);
