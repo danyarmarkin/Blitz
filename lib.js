@@ -31,6 +31,11 @@ function set_questions_theme(){
 	if (questions_theme === 'questions_trigonometriya'){
 		questions = JSON.parse(JSON.stringify(questions_trigonometriya));
 	}
+
+	if (questions_theme === 'questions_double_radical'){
+		questions = JSON.parse(JSON.stringify(questions_double_radiсal));
+	}
+
 	qsts = JSON.parse(JSON.stringify(questions));
 	
 	try{
