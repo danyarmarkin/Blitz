@@ -36,6 +36,10 @@ function set_questions_theme(){
 		questions = JSON.parse(JSON.stringify(questions_double_radiсal));
 	}
 
+	if (questions_theme === 'questions_sqr_inequality'){
+		questions = JSON.parse(JSON.stringify(questions_sqr_inequality));
+	}
+
 	qsts = JSON.parse(JSON.stringify(questions));
 	
 	try{
