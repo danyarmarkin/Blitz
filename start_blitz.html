@@ -31,44 +31,46 @@
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-    
+
     <script src="questions/questions_sqr.js?vv"></script>
     <script src="questions/questions_t_vieta.js?vv"></script>
 	<script src="questions/questions_formuly_privideniya.js?vv"></script>
 	<script src="questions/questions_trigonometriya.js?vv"></script>
 	<script src="questions/questions_double_radical.js?vv"></script>
 	<script src="questions/questions_sqr_inequality.js?vv"></script>
-	
+
 
     <script src="lib.js?v"></script>
 	<script src="blitz.js?vv"></script>
-    
+
+  <link rel="stylesheet" href="decor.css">
+
 
 </head>
 
     <body style = "text-align: center">
-      <button onclick="" id = "open_blitz_page" disabled>Вопросы на скорость</button>
-      <button onclick="window.open('start_manual.html', '_self')" id = "open_manual_page">Вопросы по клику</button><br><br>
+      <button onclick="" id = "open_blitz_page" disabled class="button1">Вопросы на скорость</button>
+      <button onclick="window.open('start_manual.html', '_self')" id = "open_manual_page" class="button1">Вопросы по клику</button><br><br>
 
-		Тема вопросов: <select id="select_questions" onchange="set_questions_theme()">	
-			<option value="sqr">Квадраты чисел от 11 до 36</option>
-			<option value="t_vieta">Теорема Виета</option>
-			<option value="formuly_privideniya">Формулы приведения</option>
-			<option value="questions_trigonometriya">Тригонометрические формулы</option>
-			<option value="questions_double_radical">Сложные радикалы</option>
-			<option value="questions_sqr_inequality">Квадратичные неравенства (D отр. или 0) </option>
-			
+		Тема вопросов: <select id="select_questions" onchange="set_questions_theme()"class="button1">
+			<option value="sqr" class="select-item">Квадраты чисел от 11 до 36</option>
+			<option value="t_vieta" class="select-item">Теорема Виета</option>
+			<option value="formuly_privideniya" class="select-item">Формулы приведения</option>
+			<option value="questions_trigonometriya" class="select-item">Тригонометрические формулы</option>
+			<option value="questions_double_radical" class="select-item">Сложные радикалы</option>
+			<option value="questions_sqr_inequality" class="select-item">Квадратичные неравенства (D отр. или 0) </option>
+
 		</select><br><br>
-  
-      Длительность вопроса: <input type = 'number' id = "duration" value = 3 style = "width: 60px;" min = 1 required></input><br> <br>
-      Количество вопросов: <input type = 'number' id = "number_of_questions" value = 4 style = "width: 60px;" min = 1 onchange = "number_of_questions_change()" required></input><br>
+
+      Длительность вопроса: <input type = 'number' id = "duration" value = 3 style = "width: 60px;" min = 1 required class="button1"></input><br> <br>
+      Количество вопросов: <input type = 'number' id = "number_of_questions" value = 4 style = "width: 60px;" min = 1 onchange = "number_of_questions_change()" class="button1" required></input><br>
       <div style = "display: none" id = "max_questions_warning" style = "color: red;"></div><br>
-      Размер шрифта: <input type = 'number' id = "font_size" value = 70 onchange="change_font_size()" step ="5" style = "width: 60px;"></input>
-	  Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;"></input>	
+      Размер шрифта: <input type = 'number' id = "font_size" value = 70 onchange="change_font_size()" step ="5" style = "width: 60px;" class="button1"></input>
+	  Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;" class="button1"></input>
       <br><br>
-      <button onclick="timer()" id = "start_btn">Начать</button>
-      <button onclick="pause()" id = "pause_btn">Пауза</button>
-      <button onclick="stop()" id = "stop_btn">Сброс</button><br><br>
+      <button onclick="timer()" id = "start_btn" class="button1">Начать</button>
+      <button onclick="pause()" id = "pause_btn" class="button1">Пауза</button>
+      <button onclick="stop()" id = "stop_btn" class="button1">Сброс</button><br><br>
       <progress value="0" max="100" id = "progress_bar"></progress><br><br>
 
 
@@ -76,16 +78,16 @@
         <hr><br>
       <div><img src = '' id = "question_img" style = "display: none; margin:0 auto;"></img></div>
       <div id = "question" style = "font-size: 70px; margin:0 auto; white-space: pre;">
-							
+
 	  </div><br><br>
         <hr>
-        <button onclick="show_answers()" id = showans_btn>Показать ответы</button> - 
+        <button onclick="show_answers()" id = showans_btn>Показать ответы</button> -
         Размер шрифта:
-        <input type = 'number' id = "ans_font_size" value = 40 onchange="change_ans_font_size()" step ="5" style = "width: 60px;" required></input> -  
+        <input type = 'number' id = "ans_font_size" value = 40 onchange="change_ans_font_size()" step ="5" style = "width: 60px;" required></input> -
         В столбик <input type="checkbox" onchange = "row_column_ans()" id = "row_column_checkbox" required>
         <br><br>
       <div id = "answers" style = "font-size: 40px; margin:0 auto; white-space: pre-wrap;"></div>
-  
+
 
 </body>
 </html>
