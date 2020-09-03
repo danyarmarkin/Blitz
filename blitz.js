@@ -9,7 +9,7 @@ $(document).ready(function(){
 	  set_questions_theme();
 	  document.getElementById("number_of_questions").max = qsts.length;
 	  document.getElementById("number_of_questions").min = 1;
-    document.getElementById("answer_enter").visibility = 'hidden';
+    // document.getElementById("answer_enter").visibility = 'hidden';
 })
 
 

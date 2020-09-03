@@ -31,17 +31,17 @@
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-    
+
     <script src="questions/questions_sqr.js?vv"></script>
     <script src="questions/questions_t_vieta.js?vv"></script>
     <script src="questions/questions_formuly_privideniya.js?vv"></script>
     <script src="questions/questions_trigonometriya.js?vv"></script>
 	<script src="questions/questions_double_radical.js?vv"></script>
 	<script src="questions/questions_sqr_inequality.js?vv"></script>
-		
+
     <script src="lib.js?v"></script>
 	<script src="manual.js?vv"></script>
-    
+
 
 </head>
 
@@ -49,7 +49,7 @@
       <button onclick="window.open('start_blitz.html', '_self')" id = "open_blitz_page">Вопросы на скорость</button>
       <button onclick="" id = "open_manual_page" disabled>Вопросы по клику</button><br><br>
 
-		Тема вопросов: <select id="select_questions" onchange="set_questions_theme()">	
+		Тема вопросов: <select id="select_questions" onchange="set_questions_theme()">
 			<option value="sqr">Квадраты чисел от 11 до 36</option>
 			<option value="t_vieta">Теорема Виета</option>
 			<option value="formuly_privideniya">Формулы приведения</option>
@@ -57,12 +57,16 @@
 			<option value="questions_double_radical">Сложные радикалы</option>
 			<option value="questions_sqr_inequality">Квадратичные неравенства (D отр. или 0) </option>
 		</select><br><br>
-		
+
+    Название теста:
+    <input type="text" name="name" value="" id="test_name" onchange="errorTest()"> <br> <br>
+    <pre id="error_test_name"></pre>
+
       <button onclick="next_question()" id = "next_question">Следующий вопрос</button>
       <button onclick="showOneAns()" id = "showOneAnsBtn">Показать текущий ответ</button>
       <button onclick="stop()" id = "stop_btn">Сброс</button><br><br>
       Размер шрифта: <input type = 'number' id = "font_size" value = 70 onchange="change_font_size()" step ="5" style = "width: 60px;"></input>
-	  Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;"></input>	
+	  Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;"></input>
 	  <br>
       <hr><br>
       <img src = '' id = "question_img" style = "display: none; margin:0 auto;"></img>
@@ -71,13 +75,19 @@
       <div id = "answer" style = "font-size: 70px; margin:0 auto; display: none;" onclick = "console.log('question click')"><br><br></div>
 	  <br><br>
         <hr>
-		<button onclick="showAllAns()" id = "showAllAnsBtn">Показать все ответы</button> - 
+		<button onclick="showAllAns()" id = "showAllAnsBtn">Показать все ответы</button> -
         Размер шрифта:
-        <input type = 'number' id = "ans_font_size" value = 40 onchange="change_ans_font_size()" step ="5" style = "width: 60px;" required></input> -  
+        <input type = 'number' id = "ans_font_size" value = 40 onchange="change_ans_font_size()" step ="5" style = "width: 60px;" required></input> -
         В столбик <input type="checkbox" onchange = "row_column_ans()" id = "row_column_checkbox" required>
         <br><br>
       <div id = "answers" style = "font-size: 40px; margin:0 auto; white-space: pre-wrap;"></div>
-  
+
+
+
+      <!-- FIREBASE CONFIG  -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase.js"></script>
+    <script src="firebase_init.js"></script>
+    <script src="database_connect.js"></script>
 
 </body>
 </html>

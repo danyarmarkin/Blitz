@@ -62,16 +62,15 @@
 
 		</select><br><br>
 
+    Название теста:
+
+
       Длительность вопроса: <input type = 'number' id = "duration" value = 3 style = "width: 60px;" min = 1 required class="button1"></input><br> <br>
       Количество вопросов: <input type = 'number' id = "number_of_questions" value = 4 style = "width: 60px;" min = 1 onchange = "number_of_questions_change()" class="button1" required></input><br>
       <div style = "display: none" id = "max_questions_warning" style = "color: red;"></div><br>
       Размер шрифта: <input type = 'number' id = "font_size" value = 70 onchange="change_font_size()" step ="5" style = "width: 60px;" class="button1"></input>
-	    Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;" class="button1"></input> <br><br>\
-      <hr>
-      С вариантами ответа: <input type="checkbox" onchange = "#" id = "answers_variants_checkbox" class="button1" required> <br><br>
-      С вводом ответа: <input type="checkbox" onchange = "#" id = "answers_enter_checkbox" class="button1" required>
-      <hr>
-      <br><br>
+	    Размер изображений: <input type = 'number' id = "img_size" value = 500 onchange="change_img_size()" step ="25" style = "width: 60px;" class="button1"></input> <br><br>
+
       <button onclick="timer()" id = "start_btn" class="button1">Начать</button>
       <button onclick="pause()" id = "pause_btn" class="button1">Пауза</button>
       <button onclick="stop()" id = "stop_btn" class="button1">Сброс</button><br><br>
@@ -85,12 +84,6 @@
 
 	    </div><br><br>
       <textContent ></textContent><br><br>
-      <button type="button" name="answer_button_1" id="answer_button_1" class="answer_button" visibility = 'hidden'>1</button>
-      <button type="button" name="answer_button_2" id="answer_button_2" class="answer_button" visibility = "hidden">2</button>
-      <button type="button" name="answer_button_3" id="answer_button_3" class="answer_button" visibility = "hidden">3</button> <br><br>
-      <input type="text" id="answer_enter">
-      <br><br>
-
         <hr>
         <button onclick="show_answers()" id = showans_btn>Показать ответы</button> -
         Размер шрифта:
@@ -98,6 +91,11 @@
         В столбик <input type="checkbox" onchange = "row_column_ans()" id = "row_column_checkbox" required>
         <br><br>
       <div id = "answers" style = "font-size: 40px; margin:0 auto; white-space: pre-wrap;"></div>
+
+
+      <!-- FIREBASE CONFIG  -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase.js"></script>
+    <script src="firebase_init.js"></script>
 
 
 </body>

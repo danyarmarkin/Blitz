@@ -36,8 +36,8 @@ function showOneAns(){
 		}
 		else{
 			document.getElementById("answer_img").style.display = "inline";
-			document.getElementById("answer_img").src = src;	
-			change_img_size();					
+			document.getElementById("answer_img").src = src;
+			change_img_size();
 		}
     }
     else if (document.getElementById("showOneAnsBtn").innerHTML === 'Скрыть ответ'){
@@ -49,6 +49,7 @@ function showOneAns(){
 }
 
 function next_question() {
+	document.getElementById('test_name').disabled = true;
 	document.getElementById("showOneAnsBtn").disabled = false;
 	document.getElementById("showAllAnsBtn").disabled = false;
 	document.getElementById("showOneAnsBtn").innerHTML = 'Показать текущий ответ';
@@ -57,7 +58,7 @@ function next_question() {
 	document.getElementById("showAllAnsBtn").innerHTML = 'Показать все ответы';
     document.getElementById("answers").textContent = '';
     var questions_div = document.getElementById("question");
-	
+
 	if (qsts.length === 0){
 		document.getElementById("question").textContent = 'заданы все возможные вопросы';
 		document.getElementById("next_question").disabled = true;
@@ -71,7 +72,7 @@ function next_question() {
 
 		if (isImg(el[0])){
 			document.getElementById("question_img").style.display = "inline";
-			questions_div.style.display = "none"; 
+			questions_div.style.display = "none";
 			answers.push(addimg(el[1]));
 			document.getElementById("question_img").src = el[0];
 			change_img_size();
@@ -79,11 +80,12 @@ function next_question() {
 		}
 		else{
 			document.getElementById("question_img").style.display = "none";
-			questions_div.style.display = "inline"; 
+			questions_div.style.display = "inline";
 			questions_div.textContent = el[0];
 			var sp = document.createElement('span');
 			sp.innerHTML = el[1];
 			answers.push(sp);
+			pushQuestion(el[0]);
 			MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 		}
 	}
@@ -94,12 +96,13 @@ function next_question() {
 
 function stop(){
         answers = [];
+				document.getElementById('test_name').disabled = false;
 	    document.getElementById("answer_img").style.display = "none";
 		document.getElementById("showOneAnsBtn").disabled = true;
 		document.getElementById("showAllAnsBtn").disabled = true;
-		document.getElementById("question_img").style.display = "none";		
+		document.getElementById("question_img").style.display = "none";
 		document.getElementById("next_question").disabled = false;
-        document.getElementById("question").textContent = '';	
+        document.getElementById("question").textContent = '';
         document.getElementById("showAllAnsBtn").innerHTML = 'Показать ответы';
         document.getElementById("answers").textContent = '';
 		document.getElementById("answers").textContent = '';
@@ -110,5 +113,8 @@ function stop(){
 function row_column_ans(){
 	if (document.getElementById("showAllAnsBtn").innerHTML === 'Скрыть ответы'){
 		show_answers_row_column();
-	}   
+	}
 }
+(function(){
+
+}());
