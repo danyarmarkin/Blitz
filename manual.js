@@ -80,12 +80,13 @@ function next_question() {
 		}
 		else{
 			document.getElementById("question_img").style.display = "none";
+			pushQuestion(el[0], el[1]);
 			questions_div.style.display = "inline";
 			questions_div.textContent = el[0];
 			var sp = document.createElement('span');
 			sp.innerHTML = el[1];
 			answers.push(sp);
-			pushQuestion(el[0]);
+
 			MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 		}
 	}
@@ -106,6 +107,7 @@ function stop(){
         document.getElementById("showAllAnsBtn").innerHTML = 'Показать ответы';
         document.getElementById("answers").textContent = '';
 		document.getElementById("answers").textContent = '';
+		errorTest();
 		qsts = JSON.parse(JSON.stringify(questions));
 }
 

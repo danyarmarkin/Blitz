@@ -62,7 +62,7 @@
     <input type="text" name="name" value="" id="test_name" onchange="errorTest()"> <br> <br>
     <pre id="error_test_name"></pre>
 
-      <button onclick="next_question()" id = "next_question">Следующий вопрос</button>
+      <button onclick="next_question()" id = "next_question" disabled>Следующий вопрос</button>
       <button onclick="showOneAns()" id = "showOneAnsBtn">Показать текущий ответ</button>
       <button onclick="stop()" id = "stop_btn">Сброс</button><br><br>
       Размер шрифта: <input type = 'number' id = "font_size" value = 70 onchange="change_font_size()" step ="5" style = "width: 60px;"></input>
@@ -80,7 +80,9 @@
         <input type = 'number' id = "ans_font_size" value = 40 onchange="change_ans_font_size()" step ="5" style = "width: 60px;" required></input> -
         В столбик <input type="checkbox" onchange = "row_column_ans()" id = "row_column_checkbox" required>
         <br><br>
-      <div id = "answers" style = "font-size: 40px; margin:0 auto; white-space: pre-wrap;"></div>
+      <div id = "answers" style = "font-size: 40px; margin:0 auto; white-space: pre-wrap;"></div> <br> <br>
+
+    <button type="button" name="button" onclick="showResults()">Показать результаты</button>
 
 
 
