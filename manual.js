@@ -58,6 +58,7 @@ function next_question() {
 	document.getElementById("showAllAnsBtn").innerHTML = 'Показать все ответы';
     document.getElementById("answers").textContent = '';
     var questions_div = document.getElementById("question");
+		updateTable();
 
 	if (qsts.length === 0){
 		document.getElementById("question").textContent = 'заданы все возможные вопросы';
